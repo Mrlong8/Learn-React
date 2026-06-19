@@ -13,8 +13,8 @@ class App extends React.Component {
       <div>
         <p>
           Hello World Bùi Xuân Long
-          <MyComponent></MyComponent>
         </p>
+        <MyComponent></MyComponent>
       </div >
     );
   }
