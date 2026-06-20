@@ -1,12 +1,22 @@
 import React from 'react'
 import UserInfor from '../components/UserInfor'
+import DisplayInfor from '../components/DisplayInfor'
 
 class MyComponent extends React.Component {
-
+    state = {
+        listUser: [
+            { id: 1, name: "Xuân Long", age: "20" },
+            { id: 2, name: "Xuan", age: "40" },
+            { id: 3, name: "Dragon", age: "10" }
+        ]
+    }
     render() {
+
+        // Dry:  don't repeat youseft
         return (
             <div>
                 <UserInfor></UserInfor>
+                <DisplayInfor listUser={this.state.listUser} ></DisplayInfor>
             </div>
         );
     }
