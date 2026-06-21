@@ -10,13 +10,24 @@ class MyComponent extends React.Component {
             { id: 3, name: "Dragon", age: "10" }
         ]
     }
+    handleAddNewuser = (userObject) => {
+        // console.log(">>> Check data : ", userObject)
+        this.setState({
+            listUser: [userObject, ...this.state.listUser]
+        })                         // copy danh sach ra
+    }
+
     render() {
 
         // Dry:  don't repeat youseft
         return (
             <div>
-                <UserInfor></UserInfor>
-                <DisplayInfor listUser={this.state.listUser} ></DisplayInfor>
+                <UserInfor
+                    handleAddNewuser={this.handleAddNewuser}
+                ></UserInfor>
+                <DisplayInfor
+                    listUser={this.state.listUser}
+                ></DisplayInfor>
             </div>
         );
     }

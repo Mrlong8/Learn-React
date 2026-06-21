@@ -20,7 +20,12 @@ class UserInfor extends React.Component {
     }
     handleOnSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
+        this.props.handleAddNewuser({
+            id: Math.floor((Math.random() * 100) + 1) + "-random",
+            name: this.state.name,
+            age: this.state.age
+        })
     }
     // tránh load trang
     render() {
