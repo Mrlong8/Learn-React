@@ -8,12 +8,54 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 1350px) {
+  .navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 1600px !important;
+  }
+}
+
+
 .app-container {
   .header-container {
+    .btn-login {
+      color: #ffffff;
+      background-color: #8c8c8c;
+      border-radius: 5px;
+      margin-right: 15px;
+      padding: 0 15px;
+      border: 1px solid rgb(33, 33, 33);
+      height: 40px;
+
+
+      &:hover {
+        background: rgb(191, 191, 191);
+      }
+    }
+
+    .btn-signup {
+      color: #ffffff;
+      background-color: #323232;
+      border-radius: 5px;
+      margin-right: 15px;
+      padding: 0 15px;
+      border: 1px solid rgb(33, 33, 33);
+      height: 40px;
+
+      &:hover {
+        background: black;
+      }
+    }
+
     .navbar {
       // position: relative;
       z-index: 10;
-      opacity: 0.6;
+      // opacity: 0.6;
+      padding-top: 20px;
+      background-color: rgba(0, 0, 0, 0) !important;
+      // display: flex;
+      // justify-content: space-between;
 
       .nav-link {
         &.active {
@@ -24,12 +66,53 @@ body {
   }
 }
 
+.app-container {
+  .header-container {}
+
+  .homepage-container {
+    .homepage-content {
+      padding: 100px;
+      position: relative;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title-1 {
+        font-size: 45px;
+        font-weight: 600;
+      }
+
+      .title-2 {
+        font-size: 25px;
+
+      }
+
+      .title-3 {
+        button {
+          border-radius: 5px;
+          background-color: #232323;
+          color: #ffffff;
+          border: 1px solid rgb(33, 33, 33);
+          height: 40px;
+
+          &:hover {
+            background: rgb(62, 62, 62);
+          }
+        }
+
+      }
+    }
+  }
+}
+
 video {
   position: fixed;
+  // margin: 0;
   bottom: 0;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
   width: 100vw;
   // z-index: -1;
-  object-fit: cover;
+  // object-fit: cover;
 }
