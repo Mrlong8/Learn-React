@@ -1,5 +1,24 @@
 .manage-user-container {
-    .user-content {}
+    padding: 10px;
+
+    .user-content {
+        .btn-Add-New {
+            button {
+                // border: none;
+                // border-radius: 5px;
+                margin: 15px;
+                display: flex;
+                gap: 3px;
+                align-items: center;
+            }
+        }
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 20px;
+
+    }
 }
 
 .modal-add-user {
