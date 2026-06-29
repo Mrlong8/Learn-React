@@ -23,7 +23,7 @@ instance.interceptors.request.use(
 // Add a response interceptor
 instance.interceptors.response.use(
     function (response) {
-        console.log("Check >>> ", response)
+        // console.log("Check >>> ", response)
         // Any status code that lies within the range of 2xx causes this function to trigger
         // Do something with response data
         return response && response.data ? response.data : response;
