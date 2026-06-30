@@ -20,7 +20,7 @@ const ModalCreateUser = (props) => {
         setImage("")
         setPreviewImage("")
     };
-    const handleShow = () => setShow(true);
+
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -68,13 +68,15 @@ const ModalCreateUser = (props) => {
         // form.append('my_file', fs.createReadStream('/foo/bar.jpg'));
 
         let data = await postCreateNewUser(email, password, username, role, image);
-        // console.log(">>> check res : ", res.data)
         console.log("component res : ", data)
 
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
-            await props.fetchListUsers()
+            // await props.fetchListUsers()
+
+            props.setCurrentPage(1)
+            await props.fetchListUsersWithPaginate(1)
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM);

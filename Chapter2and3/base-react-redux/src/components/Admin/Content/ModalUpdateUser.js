@@ -77,14 +77,16 @@ const ModalUpdateUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
-            await props.fetchListUsers()
+            // await props.fetchListUsers()
+            // props.setCurrentPage(1)
+            await props.fetchListUsersWithPaginate(props.currentPage)
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM);
         }
     }
 
-    console.log("check data update : ", dataUpdate)
+    // console.log("check data update : ", dataUpdate)
     return (
         <>
             {/* <Button variant="primary" onClick={handleShow}>
