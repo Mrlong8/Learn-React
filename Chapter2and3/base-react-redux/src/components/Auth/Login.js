@@ -17,14 +17,34 @@ const Login = (props) => {
         navigate('/');
     }
 
+    const handleSignup = () => {
+        navigate('/signup')
+    }
+
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
     const handleLogin = async () => {
 
         // varidate 
-
+        const isValiEmail = validateEmail(email);
+        if (!isValiEmail) {
+            toast.error("invalue email")
+            return;
+        }
+        if (!password) {
+            toast.error("invalue password")
+            return;
+        }
         // submit apis
 
         let data = await postLogin(email, password)
-        console.log(">>> check res : ", data)
+        // console.log(">>> check res : ", data)
         if (data && +data.EC === 0) {
             toast.success(data.EM);
             navigate('/');
@@ -38,10 +58,10 @@ const Login = (props) => {
         <div className="login-container">
             <div className="header">
                 <span>Don't have an account yet</span>
-                <button>Sign up</button>
+                <button onClick={() => handleSignup()}>Sign up</button>
             </div>
             <div className="title col-4 mx-auto">
-                Bui Xuan Long
+                Log In
             </div>
             <div className="welcome col-4 mx-auto">
                 Hello, Who is this?

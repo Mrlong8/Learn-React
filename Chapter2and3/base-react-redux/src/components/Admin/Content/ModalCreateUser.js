@@ -63,10 +63,6 @@ const ModalCreateUser = (props) => {
             return;
         }
 
-        // submit data
-        // form.append('my_buffer', Buffer.alloc(10));
-        // form.append('my_file', fs.createReadStream('/foo/bar.jpg'));
-
         let data = await postCreateNewUser(email, password, username, role, image);
         // console.log("component res : ", data)
 
