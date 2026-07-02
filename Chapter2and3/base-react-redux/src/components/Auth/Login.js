@@ -4,6 +4,9 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'
 import { postLogin } from '../../services/apiService'
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux'
+import { doLogin } from '../../redux/action/userAction';
+import { ImSpinner9 } from "react-icons/im";
 
 
 const Login = (props) => {
@@ -12,6 +15,9 @@ const Login = (props) => {
     const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const [isLoadingData, setIsLoadingData] = useState(false)
 
     const handleBack = () => {
         navigate('/');
@@ -41,16 +47,20 @@ const Login = (props) => {
             toast.error("invalue password")
             return;
         }
-        // submit apis
 
+        setIsLoadingData(true)
+        // submit apis
         let data = await postLogin(email, password)
         // console.log(">>> check res : ", data)
         if (data && +data.EC === 0) {
+            dispatch(doLogin(data))
             toast.success(data.EM);
-            navigate('/');
+            setIsLoadingData(false)
+            // navigate('/');
         }
         if (data && +data.EC !== 0) {
             toast.error(data.EM);
+            setIsLoadingData(false)
         }
     }
 
@@ -90,7 +100,14 @@ const Login = (props) => {
                     <button
                         className='btn-submit'
                         onClick={() => handleLogin()}
-                    >Login</button>
+                        disabled={isLoadingData}
+                    >
+                        {isLoadingData === true &&
+                            <ImSpinner9 className="loader-icon" />
+                        }
+                        <span> Login</span>
+
+                    </button>
                 </div>
                 <div className='back'>
                     <span onClick={() => handleBack()}><IoMdArrowRoundBack />Go Back Home</span>

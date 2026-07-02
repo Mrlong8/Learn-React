@@ -120,6 +120,12 @@
             cursor: pointer;
             transition: all 0.2s ease;
 
+            &:disabled {
+                background: #fb8525;
+                color: #fff;
+                cursor: no-drop;
+            }
+
             &:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 10px 20px rgba(2, 132, 199, 0.35);
@@ -144,6 +150,28 @@
             }
         }
     }
+
+    /*
+Source - https://stackoverflow.com/q/65298589
+Posted by Josh Susa
+Retrieved 2026-07-02, License - CC BY-SA 4.0
+*/
+    .loader-icon {
+        margin-right: 7px;
+        top: 2px;
+        animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+        from {
+            transform: scale(1) rotate(0deg);
+        }
+
+        to {
+            transform: scale(1) rotate(360deg);
+        }
+    }
+
 }
 
 @media (max-width: 1000px) {
