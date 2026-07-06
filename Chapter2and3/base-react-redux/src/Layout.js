@@ -14,7 +14,7 @@ import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Signup from "./components/Auth/Signup";
 import ListQuiz from "./components/User/ListQuiz";
-import DetailQuiz from "./components/User/DatailQuiz";
+import DetailQuiz from "./components/User/DetailQuiz";
 
 const NotFound = () => {
     return (
