@@ -1,0 +1,300 @@
+.quiz-container {
+    min-height: 100vh;
+    padding: 30px;
+    background:
+        radial-gradient(circle at top left, rgba(193, 230, 255, 0.55), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(243, 212, 255, 0.55), transparent 45%),
+        linear-gradient(135deg, #0f172a, #1e293b);
+
+    color: #ffffff;
+
+    .quiz-title {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    >hr {
+        border: none;
+        height: 1px;
+        margin-bottom: 25px;
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .add-new {
+        margin-bottom: 30px;
+
+        form {
+            fieldset {
+                padding: 25px !important;
+                border: 1px solid rgba(255, 255, 255, 0.25) !important;
+                border-radius: 18px !important;
+
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+
+                box-shadow:
+                    0 8px 32px rgba(0, 0, 0, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+                legend {
+                    padding: 0 15px !important;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .form-floating {
+        margin-bottom: 20px;
+
+        .form-control {
+            height: 58px;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+
+            transition: all 0.25s ease;
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &:focus {
+                color: #ffffff;
+                border-color: rgba(255, 255, 255, 0.65);
+                background: rgba(255, 255, 255, 0.14);
+
+                box-shadow:
+                    0 0 0 4px rgba(59, 130, 246, 0.2),
+                    0 6px 20px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        label {
+            color: rgba(255, 255, 255, 0.7);
+
+            &::after {
+                background: transparent !important;
+            }
+        }
+    }
+
+    .select-level {
+        margin-bottom: 20px;
+
+        .select-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+    }
+
+    .more-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+
+        label {
+            font-size: 15px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        input[type='file'] {
+            width: 100%;
+            padding: 10px;
+
+            color: rgba(255, 255, 255, 0.85);
+            border: 1px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            cursor: pointer;
+            transition: all 0.25s ease;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.8);
+                background: rgba(255, 255, 255, 0.14);
+            }
+
+            &::file-selector-button {
+                padding: 9px 16px;
+                margin-right: 15px;
+
+                color: #ffffff;
+                font-weight: 500;
+
+                border: none;
+                border-radius: 8px;
+                background: rgba(59, 130, 246, 0.75);
+
+                cursor: pointer;
+                transition: all 0.25s ease;
+
+                &:hover {
+                    background: rgba(37, 99, 235, 0.95);
+                }
+            }
+        }
+    }
+
+    .btn-save {
+        button {
+            margin-top: 20px;
+            height: 40px;
+            width: 90px;
+            color: #ffffff;
+
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+
+            box-shadow: none;
+            transition: all 0.25s ease;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.55);
+            }
+
+            &--is-focused {
+                border-color: rgba(255, 255, 255, 0.7);
+                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            }
+        }
+    }
+
+    .list-detail {
+        min-height: 180px;
+        padding: 25px;
+
+        color: rgba(255, 255, 255, 0.85);
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+
+        background: rgba(255, 255, 255, 0.09);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+    }
+}
+
+/* React Select */
+
+.quiz-container {
+    .quiz-select {
+        .react-select__control {
+            min-height: 54px;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+
+            box-shadow: none;
+            transition: all 0.25s ease;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.55);
+            }
+
+            &--is-focused {
+                border-color: rgba(255, 255, 255, 0.7);
+                box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            }
+        }
+
+        .react-select__single-value {
+            color: #ffffff;
+        }
+
+        .react-select__placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .react-select__input-container {
+            color: #ffffff;
+        }
+
+        .react-select__indicator-separator {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .react-select__dropdown-indicator {
+            color: rgba(255, 255, 255, 0.7);
+
+            &:hover {
+                color: #ffffff;
+            }
+        }
+
+        .react-select__menu {
+            overflow: hidden;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(16px);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .react-select__option {
+            color: rgba(255, 255, 255, 0.85);
+            background: transparent;
+
+            cursor: pointer;
+
+            &--is-focused {
+                background: rgba(59, 130, 246, 0.35);
+            }
+
+            &--is-selected {
+                color: #ffffff;
+                background: rgba(37, 99, 235, 0.75);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 20px 14px;
+
+        .quiz-title {
+            font-size: 25px;
+        }
+
+        .add-new {
+            form {
+                fieldset {
+                    padding: 18px !important;
+                }
+            }
+        }
+
+        .list-detail {
+            padding: 18px;
+            overflow-x: auto;
+        }
+    }
+}

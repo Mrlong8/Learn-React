@@ -1,32 +1,433 @@
-.sidebar-btn-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.custom-sidebar {
+    height: 100vh;
+    min-height: 100vh;
 
-    .sidebar-btn {
-        transition: width 0.3s;
-        width: 150px;
-        padding: 1px 5px;
-        border-radius: 40px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #adadad;
-        text-decoration: none;
-        margin: 0 auto;
-        height: 35px;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    transition: width 0.3s ease;
+
+    .pro-sidebar-inner {
+        overflow: hidden;
+
+        background:
+            linear-gradient(180deg,
+                rgba(15, 23, 42, 0.94),
+                rgba(30, 41, 59, 0.92)) !important;
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+
+        box-shadow:
+            8px 0 30px rgba(0, 0, 0, 0.25),
+            inset -1px 0 rgba(255, 255, 255, 0.05);
+
+        .pro-sidebar-layout {
+            height: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    // Header
+
+    .pro-sidebar-header {
+        flex-shrink: 0;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    .sidebar-header-content {
+        min-height: 88px;
+        padding: 18px 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+
+        overflow: hidden;
+    }
+
+    .sidebar-brand-wrapper {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        cursor: pointer;
+    }
+
+    .sidebar-logo {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        text-overflow: ellipsis;
+
+        font-size: 29px;
+        color: #38bdf8;
+
+        border: 1px solid rgba(125, 211, 252, 0.35);
+        border-radius: 14px;
+
+        background: rgba(56, 189, 248, 0.12);
+
+        box-shadow:
+            0 8px 25px rgba(14, 165, 233, 0.18),
+            inset 0 1px rgba(255, 255, 255, 0.15);
+
+        svg {
+            animation: rotateReact 10s linear infinite;
+        }
+    }
+
+    .sidebar-brand {
         overflow: hidden;
 
+        color: #f8fafc;
+
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    // menu content 
+    .pro-sidebar-content {
+        flex: 1;
+
+        padding: 18px 10px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .pro-menu {
+        padding-top: 0;
+        padding-bottom: 8px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .pro-menu-item {
+            margin-bottom: 6px;
+            border-radius: 12px;
+
+            >.pro-inner-item {
+                min-height: 48px;
+                padding: 8px 12px 8px 14px !important;
+
+                color: rgba(226, 232, 240, 0.82);
+
+                border: 1px solid transparent;
+                border-radius: 12px;
+
+                transition:
+                    color 0.25s ease,
+                    background 0.25s ease,
+                    border-color 0.25s ease,
+                    transform 0.25s ease;
+
+                &::before {
+                    display: none;
+                }
+
+                &:hover {
+                    color: #ffffff;
+
+                    border-color: rgba(125, 211, 252, 0.2);
+
+                    background:
+                        linear-gradient(90deg,
+                            rgba(56, 189, 248, 0.16),
+                            rgba(168, 85, 247, 0.1));
+
+                    transform: translateX(3px);
+                }
+
+                .pro-icon-wrapper {
+                    width: 34px;
+                    min-width: 34px;
+                    height: 34px;
+
+                    margin-right: 12px;
+
+                    color: #7dd3fc;
+
+                    border: 1px solid rgba(255, 255, 255, 0.12);
+                    border-radius: 10px;
+
+                    background: rgba(255, 255, 255, 0.06);
+
+                    .pro-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                .pro-item-content {
+                    overflow: hidden;
+
+                    font-size: 14px;
+                    font-weight: 500;
+
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &.active {
+                >.pro-inner-item {
+                    color: #ffffff;
+
+                    border-color: rgba(125, 211, 252, 0.35);
+
+                    background:
+                        linear-gradient(90deg,
+                            rgba(14, 165, 233, 0.25),
+                            rgba(139, 92, 246, 0.16));
+                }
+            }
+        }
+    }
+
+    // Submenu
+
+    .pro-menu-item.pro-sub-menu {
+        >.pro-inner-list-item {
+            padding-left: 0 !important;
+            background: transparent !important;
+
+            ul {
+                padding: 7px 0 3px 14px;
+            }
+
+            .pro-menu-item {
+                >.pro-inner-item {
+                    min-height: 44px;
+                    background: rgba(255, 255, 255, 0.025);
+
+                    &:hover {
+                        background: rgba(56, 189, 248, 0.12);
+                    }
+                }
+            }
+        }
+
+        &.open {
+            >.pro-inner-item {
+                color: #ffffff;
+                background: rgba(255, 255, 255, 0.07);
+            }
+        }
+    }
+
+    // Footer
+
+    .pro-sidebar-footer {
+        flex-shrink: 0;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.035);
+    }
+
+    .sidebar-btn-wrapper {
+        padding: 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-btn {
+        width: 100%;
+        height: 44px;
+        padding: 0 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+
+        overflow: hidden;
+
+        color: rgba(226, 232, 240, 0.85);
+        text-decoration: none;
+
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+
+        background: rgba(255, 255, 255, 0.06);
+
+        transition:
+            color 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease;
+
+        svg {
+            min-width: 18px;
+            font-size: 18px;
+        }
+
         span {
-            margin-left: 5px;
-            font-size: 13px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         &:hover {
-            color: #dee2ec;
-            ;
+            color: #ffffff;
+            border-color: rgba(125, 211, 252, 0.4);
+
+            background:
+                linear-gradient(90deg,
+                    rgba(14, 165, 233, 0.22),
+                    rgba(139, 92, 246, 0.16));
+        }
+    }
+
+    // Khi sidebar bị thu gọn
+
+    &.collapsed {
+        .sidebar-header-content {
+            padding: 18px 7px;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar-brand-wrapper {
+            justify-content: center;
+        }
+
+        .sidebar-logo {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+
+            font-size: 26px;
+        }
+
+        .collapse-sidebar-btn {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+
+            &:hover {
+                transform: translateX(2px);
+            }
+        }
+
+        .pro-sidebar-content {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .pro-menu {
+            .pro-menu-item {
+                >.pro-inner-item {
+                    padding-left: 10px !important;
+                    padding-right: 10px !important;
+
+                    &:hover {
+                        transform: none;
+                    }
+
+                    .pro-icon-wrapper {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        .sidebar-btn-wrapper {
+            padding: 12px 8px;
+        }
+
+        .sidebar-btn {
+            width: 44px;
+            padding: 0;
+        }
+    }
+}
+
+@keyframes rotateReact {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+$sidebar-duration: 0.35s;
+$sidebar-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+.custom-sidebar.pro-sidebar {
+    transition:
+        width $sidebar-duration $sidebar-easing,
+        min-width $sidebar-duration $sidebar-easing,
+        left $sidebar-duration $sidebar-easing,
+        right $sidebar-duration $sidebar-easing !important;
+
+    .pro-sidebar-inner {
+        transition:
+            width $sidebar-duration $sidebar-easing,
+            left $sidebar-duration $sidebar-easing,
+            right $sidebar-duration $sidebar-easing !important;
+    }
+
+    .pro-sidebar-layout {
+        transition:
+            width $sidebar-duration $sidebar-easing !important;
+    }
+
+    .sidebar-brand,
+    .sidebar-btn span,
+    .pro-item-content {
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease;
+    }
+
+    // Khi sidebar đang thu gọn
+    &.collapsed {
+
+        .sidebar-brand,
+        .sidebar-btn span {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    // Khi sidebar được mở rộng
+    &:not(.collapsed) {
+
+        .sidebar-brand,
+        .sidebar-btn span {
+            opacity: 1;
+            visibility: visible;
+
+            // Chờ sidebar mở ra rồi mới hiện chữ
+            transition-delay: 0.12s;
         }
     }
 }
