@@ -62,7 +62,7 @@ const DetailQuiz = (props) => {
     }
 
     const handleFinish = async () => {
-        console.log(">>> check data before submit : ", dataQuiz)
+        // console.log(">>> check data before submit : ", dataQuiz)
         let payload = {
             quizId: +quizId,
             answers: [],
